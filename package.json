@@ -1,7 +1,7 @@
 {
   "name": "vue-image-upload-preview",
-  "description": "A Vue.js project",
-  "version": "1.0.1",
+  "description": "基于vue的图片上传和预览插件",
+  "version": "1.0.2",
   "author": "zdh <zxh71_kg@163.com>",
   "license": "MIT",
   "private": false,
