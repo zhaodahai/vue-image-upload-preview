@@ -52,7 +52,7 @@ npm install vue-image-upload-preview --save-dev
         :deleteIsShow="true"
         @delete="bindtap_delete"
       />
-      
+
     </div>
   </template>
 ```
@@ -71,6 +71,16 @@ npm install vue-image-upload-preview --save-dev
         return this.images.map(v=>{return v.src});
       }
     }
+```
+
+- 上传图片
+```js
+  this.$refs.imgaeUpload.uploadImages(this.images)
+  .then(res => {
+    ...
+  }).catch(res => {
+    ...
+  })
 ```
 
 - 自定义上传按钮样式
