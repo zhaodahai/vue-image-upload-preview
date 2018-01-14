@@ -25,6 +25,10 @@
       @delete="bindtap_delete"
     />
 
+    <div @click="bindtap_upload">
+      上传
+    </div>
+
   </div>
 </template>
 
@@ -83,6 +87,18 @@ export default {
     bingtap_hiddenImg() {
       this.index = -1;
     },
+
+    /**
+     *  绑定函数 -- 上传图片
+     */
+    bindtap_upload(){
+      this.$refs.imgaeUpload.uploadImages(this.images)
+      .then(res => {
+        console.log(res);
+      })catch(err => {
+        console.log(err);
+      })
+    }
   },
 
 

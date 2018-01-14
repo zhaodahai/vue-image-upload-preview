@@ -134,4 +134,4 @@ npm install vue-image-upload-preview --save-dev
 
 ## Notice
 - 使用方法仅供参考
-- /App.vue 有简单的例子
+- /src/App.vue 有简单的例子 [demo](https://github.com/zhaodahai/vue-image-upload-preview/blob/master/src/App.vue)
