@@ -3,6 +3,8 @@
 
 基于vue的图片上传预览插件
 
+该组件引用了 [mint-ui](https://github.com/ElemeFE/mint-ui) 和 [lrz](https://github.com/think2011/localResizeIMG)
+
 ## Install
 
 ```shell
@@ -10,7 +12,7 @@ npm install vue-image-upload-preview --save-dev
 ```
 ## Usage
 
-- 引入上传和预览组件，可按需引入
+- 引入图片上传和预览组件，可按需引入
 ```js
   import {ImageUpload , ImagePreview} from 'vue-image-upload-preview'
 ```
@@ -41,6 +43,7 @@ npm install vue-image-upload-preview --save-dev
        @chooseImages='bindtap_chooseImages'
       />
     </div>
+
     <!-- 图片预览 -->
     <image-preview
       style="z-index:200"
@@ -51,6 +54,22 @@ npm install vue-image-upload-preview --save-dev
       @delete="bindtap_delete"
     />
   </template>
+```
+
+- 绑定数据
+```js
+    data() {
+      return {
+        index: -1,
+        images: []
+      }
+    },
+
+    computed:{
+      preImages() {
+        return this.images.map(v=>{return v.src});
+      }
+    }
 ```
 
 - 自定义上传按钮样式
@@ -75,8 +94,8 @@ npm install vue-image-upload-preview --save-dev
        * e[0].src 图片base64，用于预览
        * e[0].compress 图片是否经过压缩
        */
-       if(Array.isArray(res)){
-          ...
+       if(Array.isArray(e)){
+          this.images = this.images.concat(e);
        }else {
           console.log(e);
        }
@@ -88,9 +107,10 @@ npm install vue-image-upload-preview --save-dev
 - `numIsShow` - `Boolean` - [default:`false`] - 是否显示数字；
 - `chooseImages` - `Function` - 选择图片回调；
 ```js
-    bindtap_delete(i){
+    bindtap_delete(e){
       /*
-       * this.images 存储预览图片路径
+       * e 当前显示的图片的下标(双向绑定index，可以忽略e)
+       * this.images 存储选择图片传过来的对象
        * this.index 双向绑定当前显示的图片的下标
        * 下面是删除的例子
        */
@@ -99,3 +119,8 @@ npm install vue-image-upload-preview --save-dev
       })
     },
 ```
+
+
+## Notice
+- 使用方法仅供参考
+- /App.vue 有简单的例子
