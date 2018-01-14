@@ -42,17 +42,18 @@ npm install vue-image-upload-preview --save-dev
        :max-count = 10
        @chooseImages='bindtap_chooseImages'
       />
-    </div>
 
-    <!-- 图片预览 -->
-    <image-preview
-      style="z-index:200"
-      :images="preImages"
-      v-model="index"
-      :numIsShow="true"
-      :deleteIsShow="true"
-      @delete="bindtap_delete"
-    />
+      <!-- 图片预览 -->
+      <image-preview
+        style="z-index:200"
+        :images="preImages"
+        v-model="index"
+        :numIsShow="true"
+        :deleteIsShow="true"
+        @delete="bindtap_delete"
+      />
+      
+    </div>
   </template>
 ```
 
